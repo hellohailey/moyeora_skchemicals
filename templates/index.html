@@ -15,6 +15,7 @@
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="{{  url_for('static',  filename='css/heading.css') }}">
     <link rel="stylesheet" href="{{  url_for('static',  filename='css/body.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
         /*!
@@ -4955,6 +4956,7 @@
             background-clip: border-box;
             border: 0.125rem solid rgba(0, 0, 0, 0.125);
             border-radius: 0.5rem;
+            margin-bottom: 20px;
         }
 
         .card>hr {
@@ -4979,7 +4981,7 @@
         }
 
         .card-title {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .card-subtitle {
@@ -11056,14 +11058,14 @@
         }
 
         .portfolio-modal .portfolio-modal-title {
-            font-size: 2.25rem;
-            line-height: 2rem;
+            font-size: 1.25rem;
+            line-height: 1rem;
         }
 
         @media (min-width: 992px) {
             .portfolio-modal .portfolio-modal-title {
-                font-size: 3rem;
-                line-height: 2.5rem;
+                font-size: 2rem;
+                line-height: 0.5rem;
             }
         }
 
@@ -11181,6 +11183,25 @@
         .btn-social {
             margin-bottom: 0.5rem;
         }
+
+        #card-list {
+            overflow-y: auto;
+            height: 200px;
+        }
+
+        .flag {
+            height: 100px;
+            float: left;
+        }
+
+        #like {
+            font-family: sans-serif;
+            text-align: center;
+            font-size: 13px;
+            height: 35px;
+            width: 70px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -11253,7 +11274,8 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid"
-                            src="{{ url_for('static', filename='assets/img/portfolio/japanese.png') }}" alt="Tasty Cake" />
+                            src="{{ url_for('static', filename='assets/img/portfolio/japanese.png') }}"
+                            alt="Tasty Cake" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5">
@@ -11274,7 +11296,8 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid"
-                            src="{{ url_for('static', filename='assets/img/portfolio/global.png') }}" alt="Controller" />
+                            src="{{ url_for('static', filename='assets/img/portfolio/global.png') }}"
+                            alt="Controller" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5">
@@ -11284,7 +11307,8 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid"
-                            src="{{ url_for('static', filename='assets/img/portfolio/common.png') }}" alt="Locked Safe" />
+                            src="{{ url_for('static', filename='assets/img/portfolio/common.png') }}"
+                            alt="Locked Safe" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5">
@@ -11304,7 +11328,8 @@
                             class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/chicken.png') }}"
+                        </div><img class="img-fluid"
+                            src="{{ url_for('static', filename='assets/img/portfolio/chicken.png') }}"
                             alt="New Image" />
                     </div>
                 </div>
@@ -11314,7 +11339,8 @@
                             class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/fastfood.png') }}"
+                        </div><img class="img-fluid"
+                            src="{{ url_for('static', filename='assets/img/portfolio/fastfood.png') }}"
                             alt="New Image" />
                     </div>
                 </div>
@@ -11324,8 +11350,8 @@
                             class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/cafe.png') }}"
-                            alt="New Image" />
+                        </div><img class="img-fluid"
+                            src="{{ url_for('static', filename='assets/img/portfolio/cafe.png') }}" alt="New Image" />
                     </div>
                 </div>
             </div>
@@ -11350,13 +11376,23 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/cabin.png" alt="Log Cabin" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
+                                <div id="card-list">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="flag"
+                                                src="{{ url_for('static', filename='assets/img/korea.png') }}"
+                                                alt="Controller" />
+                                            <h5 class="card-title"><a href="#" class="matzip-title">만강</a></h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">경기 성남시 분당구 장미로92번길 7-5, (야탑동)</h6>
+                                            <p class="card-text"></p>
+                                            <a href="https://store.naver.com/restaurants/detail?id=18489486"
+                                                target="_blank" class="card-link">링크</a>
+                                            <a href="#" class="card-link">031-705-8892</a>
+                                            <button id="like" class="btn btn-danger">좋아요!</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
                             </div>
@@ -11384,13 +11420,18 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/cake.png" alt="Tasty Cake" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="#" class="matzip-title">스타차이나판교점</a></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">중식</h6>
+                                        <p class="card-text">경기 성남시 분당구 판교로319번길 13 (삼평동,디테라스1층 104호,105호,106호)</p>
+                                        <p class="card-group">4분</p>
+                                        <a href="https://store.naver.com/restaurants/detail?entry=plt&id=1994775424&query=%EC%8A%A4%ED%83%80%EC%B0%A8%EC%9D%B4%EB%82%98%20%ED%8C%90%EA%B5%90%EC%A0%90"
+                                            target="_blank" class="card-link">링크</a>
+                                        <a href="#" class="card-link">031-603-1707</a>
+                                    </div>
+                                </div>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
                             </div>
@@ -11411,19 +11452,26 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary mb-0">일식</h2>
+                                <h2 class="portfolio-modal-title text-secondary mb-0">일식/생선회집</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/circus.png" alt="Circus Tent" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="#" class="matzip-title">하나스시</a></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">일식/생선회집</h6>
+                                        <p class="card-text">경기 성남시 분당구 판교역로 240, A-208 삼평동.하이펙스</p>
+                                        <p class="card-group">2분</p>
+                                        <a href="https://store.naver.com/restaurants/detail?entry=plt&id=36417179&query=%ED%95%98%EB%82%98%EC%8A%A4%EC%8B%9C"
+                                            target="_blank" class="card-link">링크</a>
+                                        <a href="#" class="card-link">031-696-1795</a>
+                                    </div>
+                                </div>
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
@@ -11445,19 +11493,26 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary mb-0">글로벌</h2>
+                                <h2 class="portfolio-modal-title text-secondary mb-0">서양식</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/game.png" alt="Controller" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="#" class="matzip-title">빈티지1988</a></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">서양식전문점</h6>
+                                        <p class="card-text">경기 성남시 분당구 판교역로 231 (삼평동,에이치스퀘어에스동1층101호)</p>
+                                        <p class="card-group">4분</p>
+                                        <a href="https://store.naver.com/restaurants/detail?entry=plt&id=38309897&query=%EB%B9%88%ED%8B%B0%EC%A7%801988"
+                                            target="_blank" class="card-link">링크</a>
+                                        <a href="#" class="card-link">070-4200-1988</a>
+                                    </div>
+                                </div>
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
@@ -11486,12 +11541,20 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/safe.png" alt="Locked Safe" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="#" class="matzip-title">빈티지1988</a></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">서양식전문점</h6>
+                                        <p class="card-text">경기 성남시 분당구 판교역로 231 (삼평동,에이치스퀘어에스동1층101호)</p>
+                                        <p class="card-group">4분</p>
+                                        <a href="https://store.naver.com/restaurants/detail?entry=plt&id=38309897&query=%EB%B9%88%ED%8B%B0%EC%A7%801988"
+                                            target="_blank" class="card-link">링크</a>
+                                        <a href="#" class="card-link">070-4200-1988</a>
+                                    </div>
+                                </div>
+
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
@@ -11520,12 +11583,9 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/portfolio/submarine.png" alt="Submarine" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-5">
+
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
@@ -11554,10 +11614,10 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/image.svg" alt="New Image" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">New Image Description</p>
+                                <p class="mb-5">
+
+                                </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
                             </div>
@@ -11585,10 +11645,20 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/image.svg" alt="New Image" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">New Image Description</p>
+                                <p class="mb-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="#" class="matzip-title">맥도날드 판교테크노</a></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">패스트푸드점</h6>
+                                        <p class="card-text">경기 성남시 분당구 판교역로 231, 1층 110호, 111호 (삼평동,에이치스퀘어 에스동)</p>
+                                        <a href="https://store.naver.com/restaurants/detail?id=37576885" target="_blank"
+                                            class="card-link">링크</a>
+                                        <a href="#" class="card-link">070-7209-0564</a>
+                                    </div>
+                                </div>
+
+                                </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
                             </div>
@@ -11616,10 +11686,10 @@
                                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                     <div class="divider-custom-line"></div>
                                 </div>
-                                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5"
-                                    src="assets/img/image.svg" alt="New Image" />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-5">New Image Description</p>
+                                <p class="mb-5">
+
+                                </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i
                                         class="fas fa-times fa-fw"></i>Close Window</button>
                             </div>
@@ -11644,12 +11714,13 @@
             <!-- About Section Content-->
             <div class="row">
                 <div class="col-lg-4 ml-auto">
-                    <p class="pre-wrap lead"> 우리회사 근처의 다양한 맛집들을 소개하기 위한 사이트 입니다.
-한식, 중식, 일식 등 type 별 이미지를 클릭하시면 해당하는 식당들이 list-up 됩니다.
+                    <p class="pre-wrap lead"> 우리회사 근처의 다양한 맛집들을 소개하기 위한 사이트 입니다. 한식, 중식, 일식 등 type 별 이미지를 클릭하시면 해당하는
+                        식당들이 list-up 됩니다.
                     </p>
                 </div>
                 <div class="col-lg-4 mr-auto">
-                    <p class="pre-wrap lead"> 페이지에 대해 다양한 의견 아래의 contact로 보내주세요. 참고하겠습니다.
+                    <p class="pre-wrap lead"> 나의 단골 맛집이 검색결과에 없어도 너무 슬퍼하지 마세요~ 상단의 add 버튼을 눌러 구성원들에게 숨은 맛집을 소개할 기회를
+                        드립니다! 많이많이 자랑해주세요 :D
                     </p>
                 </div>
             </div>
@@ -11698,8 +11769,10 @@
                 </div>
                 <!-- Footer Social Icons-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="mb-4">CONTRIBUTOR</h4><a class="btn btn-outline-light btn-social mx-1"
-                        href="https://www.dribble.com/SPARTA CODING CLUB"><i class="fab fa-fw fa-dribbble"></i></a>
+                    <h4 class="mb-4">CONTRIBUTOR</h4>
+                    <p class="pre-wrap lead mb-0"> 스파르타코딩클럽 (Special thanks to. 현성튜터님)</p><a
+                        class="btn btn-outline-light btn-social mx-1" href="https://spartacodingclub.kr/"><i
+                            class="fab fa-fw fa-dribbble"></i></a>
                 </div>
                 <!-- Footer About Text-->
                 <div class="col-lg-4">
@@ -11727,6 +11800,76 @@
     <script src="assets/mail/contact_me.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+               type: 'GET',
+               url: "/api/list",
+               data: {},
+               success: function (response) {
+          let matzips = response['matzip_list']
+          for (let i = 0; i < matzips.length; i++) {
+							let matzip = matzips[i]
+              
+              let name = matzip['name']
+              let visit_count = matzip['visit_count']
+              let type = matzip['type']
+              let address = matzip['address']
+              let distance = matzip['distance']
+
+              let temp_html = `<div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog"
+        aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                            class="fas fa-times"></i></span></button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary mb-0">한식</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Text-->
+                                <div id="card-list">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="flag"
+                                                src="{{ url_for('static', filename='assets/img/korea.png') }}"
+                                                alt="Controller" />
+                                            <h5 class="card-title"><a href="#" class="matzip-title">만강</a></h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">경기 성남시 분당구 장미로92번길 7-5, (야탑동)</h6>
+                                            <p class="card-text"></p>
+                                            <a href="https://store.naver.com/restaurants/detail?id=18489486"
+                                                target="_blank" class="card-link">링크</a>
+                                            <a href="#" class="card-link">031-705-8892</a>
+                                            <button id="like" class="btn btn-danger">좋아요!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" href="#" data-dismiss="modal"><i
+                                        class="fas fa-times fa-fw"></i>Close Window</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+
+              $('#document').append(temp_html)
+          }
+      }
+  });
+}
+            
+    </script>
+
 </body>
 
 </html>
