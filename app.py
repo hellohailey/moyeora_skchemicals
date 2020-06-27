@@ -12,8 +12,16 @@ def home():
 
 @app.route('/api/list', methods=['GET'])
 def matzip_list():
-     matzips = list(db.matzip.find({},{'_id':False}))
-	return jsonify({'result': 'success','matzip_list': matzips})
+     matzips = list(db.matzip.find({},{'_id':False}).sort('like',-1))
+     return jsonify({'result': 'success','matzip_list': matzips})
+
+@app.route('/api/like', methods=['POST'])
+def matzip_like():
+    name_receive = request.form['name_give']
+    matzip = db.matzip.find_one({'name':name_receive})
+    new_like = matzip['like']+1
+    db.matzip.update_one({'name':name_receive},{'$set':{'like':new_like}})
+    return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
     app.run("0.0.0.0", port=5000, debug=True)
